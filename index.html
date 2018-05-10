@@ -12,15 +12,15 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Survey Devil</h1>
       <p id="message"></p>
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-auth">Sign up/Sign in</button>
+<button type="button" class="btn btn-default" id='modal-btn'  data-toggle="modal" data-target="#modal-auth">Sign up/Sign in</button>
       <div class="modal fade" id="modal-auth" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign up/Sign in</h4>
+          <!-- <h4 class="modal-title" id="myModalLabel">Sign up/Sign in</h4> -->
         </div>
         <div class="modal-body">
           <form id="sign-up" class="border">
@@ -61,7 +61,7 @@
       </div>
     </div>
   </div>
-
+<div class="survey-content hidden">
       <form id="create-survey" class="border">
         <fieldset>
             <legend>Make your survey</legend>
@@ -99,6 +99,7 @@
             <input type="submit" value="Update Survey">
         </fieldset>
       </form>
+      <div class="hidden">
       <form id="create-answer" class="hidden">
             <input type="radio" name="answer[response]" value="1">1 Strongly Disagree<br>
             <input type="radio" name="answer[response]" value="2">2 Disagree<br>
@@ -119,7 +120,13 @@
     <input type="submit" value="Index Answers">
   </fieldset>
 </form>
-    <div class="content"></div>
+</div>
+    <div class="content hidden">
+      <form id="clear-list">
+              <input type="submit" value="Clear List">
+      </form>
+    </div>
+</div>
 
     </body>
 </html>

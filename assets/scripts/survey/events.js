@@ -41,12 +41,18 @@ const onUpdateSurvey = function (event) {
     .catch(ui.updateSurveyFailure)
   // console.log('working')
 }
+const hideContent = function () {
+  event.preventDefault()
+  $('.content').addClass('hidden')
+}
+
 const addHandlers = function () {
   $('#create-survey').on('submit', onCreateSurvey)
   $('#index-survey').on('submit', onIndexSurvey)
   $('#show-survey').on('submit', onShowSurvey)
   $('#delete-survey').on('submit', onDeleteSurvey)
   $('#update-survey').on('submit', onUpdateSurvey)
+  $('#clear-list').on('click', hideContent)
 }
 
 module.exports = {

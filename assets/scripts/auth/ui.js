@@ -3,6 +3,7 @@ const store = require('../store')
 const signUpSuccess = function (data) {
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', '#d5fdd5')
+  $('#modal-auth').modal('hide')
   $('form').trigger('reset')
 }
 
@@ -20,7 +21,9 @@ const signInSuccess = function (data) { // represents what the api is sending ba
   $('#sign-in').addClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#create-answer').removeClass('hidden')
-  $('#modal_auth').modal('hide')
+  $('#modal-auth').modal('hide')
+  $('.survey-content').removeClass('hidden')
+  $('#modal-btn').text('Change Password / Sign Out')
   // $('.content').removeClass('hidden')
   store.user = data.user
   $('form').trigger('reset')
@@ -41,8 +44,10 @@ const signOutSuccess = function (data) {
   $('#sign-in').removeClass('hidden')
   $('#sign-up').removeClass('hidden')
   $('.content').addClass('hidden')
-  $('#modal_auth').modal('hide')
+  $('.survey-content').addClass('hidden')
+  $('#modal-auth').modal('hide')
   $('form').trigger('reset')
+  $('#modal-btn').text('Sign up / Sign in')
 }
 
 const signOutFailure = function (data) {
@@ -56,7 +61,7 @@ const signOutFailure = function (data) {
 const changePassSuccess = function (data) {
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', '#d5fdd5')
-  $('#modal_auth').modal('hide')
+  $('#modal-auth').modal('hide')
   $('form').trigger('reset')
 }
 
