@@ -57,8 +57,32 @@
       <form id="index-survey">
         <fieldset>
           <input type="submit" value="Index Surveys">
+
+        </fieldset>
+      </form>
+      <form id="show-survey">
+        <fieldset>
+          <input type="text" name="survey[id]" placeholder="Survey ID" required>
+          <input type="submit" value="Show Surveys">
+        </fieldset>
+      </form>
+      <form id="delete-survey">
+        <fieldset>
+          <input type="text" name="survey[id]" placeholder="Survey ID" required>
+          <input type="submit" value="Delete a Survey">
+        </fieldset>
+      </form>
+      <form id="update-survey" class="border">
+        <fieldset>
+            <legend>Update your survey</legend>
+            <input type="text" name="survey[title]" placeholder="Title" required>
+            <input type="text" name="survey[id]" placeholder="ID" required>
+            <input type="text" name="survey[description]" placeholder="Description" required>
+            <input type="text" name="survey[question]" placeholder="Question" required>
+            <input type="submit" value="Update Survey">
         </fieldset>
       </form>
     <div class="content"></div>
+
     </body>
 </html>
