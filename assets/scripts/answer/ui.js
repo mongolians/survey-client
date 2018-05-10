@@ -1,12 +1,16 @@
+// const global = require('../global')
+
 const createAnswerSuccess = function (data) {
   console.log(data)
   $('#message').text('Answer created!')
   $('#message').css('background-color', '#d5fdd5')
+  $('form').trigger('reset')
 }
 
 const createAnswerFailure = function (data) {
   $('#message').text('Failed to post answer')
   $('#message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
 }
 const showAnswerSuccess = function (data) {
   console.log(data.answer)
@@ -18,10 +22,12 @@ const showAnswerSuccess = function (data) {
   // $('#clear-list').removeClass('hidden') // Show clear button when user clicks "View All Animals"
   $('#message').text('Show answer works!')
   $('#message').css('background-color', '#d5fdd5')
+  $('form').trigger('reset')
 }
 const showAnswerFailure = function (data) {
   $('#message').text('Show answer dedd')
   $('#message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
 }
 const indexAnswerSuccess = function (data) {
   console.log(data.answers)
@@ -33,10 +39,12 @@ const indexAnswerSuccess = function (data) {
   // $('#clear-list').removeClass('hidden') // Show clear button when user clicks "View All Animals"
   $('#message').text('Index works!')
   $('#message').css('background-color', '#d5fdd5')
+  $('form').trigger('reset')
 }
 const indexAnswerFailure = function (data) {
   $('#message').text('Index dedd')
   $('#message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
 }
 module.exports = {
   createAnswerFailure,

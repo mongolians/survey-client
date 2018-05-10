@@ -1,2 +1,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.content {
+  height: 280px;
+  border: 2px solid black;
+  text-align: center;
+  overflow: scroll;
+  background-color: #73ba9b;
+  color: black;
+}
+
+.handlebars {
+  color: black;
+}
+
+.hidden {
+  display: none;
+}

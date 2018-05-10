@@ -3,11 +3,13 @@ const store = require('../store')
 const signUpSuccess = function (data) {
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', '#d5fdd5')
+  $('form').trigger('reset')
 }
 
 const signUpFailure = function (data) {
   $('#message').text('Failure signing up')
   $('#message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
 }
 
 const signInSuccess = function (data) { // represents what the api is sending back (the api response)
@@ -17,13 +19,17 @@ const signInSuccess = function (data) { // represents what the api is sending ba
   $('#sign-out').removeClass('hidden')
   $('#sign-in').addClass('hidden')
   $('#sign-up').addClass('hidden')
+  $('#create-answer').removeClass('hidden')
+  $('#modal_auth').modal('hide')
   // $('.content').removeClass('hidden')
   store.user = data.user
+  $('form').trigger('reset')
 }
 
 const signInFailure = function (data) {
   $('#message').text('Failure signing in')
   $('#message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
 }
 
 const signOutSuccess = function (data) {
@@ -34,13 +40,9 @@ const signOutSuccess = function (data) {
   $('#sign-out').addClass('hidden')
   $('#sign-in').removeClass('hidden')
   $('#sign-up').removeClass('hidden')
-  $('input[type=email]').val('')
-  $('input[type=text]').val('')
-  $('input[type=password]').val('')
-  $('#create-animal').addClass('hidden')
-  $('#update-animal').addClass('hidden')
-  $('#delete-animal').addClass('hidden')
   $('.content').addClass('hidden')
+  $('#modal_auth').modal('hide')
+  $('form').trigger('reset')
 }
 
 const signOutFailure = function (data) {
@@ -48,19 +50,23 @@ const signOutFailure = function (data) {
   $('#message').text('Failure signing out')
   $('#message').css('background-color', '#F2DEDE')
   setTimeout(() => $('#message').text(''), 3000)
+  $('form').trigger('reset')
 }
 
 const changePassSuccess = function (data) {
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', '#d5fdd5')
+  $('#modal_auth').modal('hide')
+  $('form').trigger('reset')
 }
 
 const changePassFailure = function (data) {
   $('#message').text('Failure changing password')
   $('#message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
 }
 
-module.exports= {
+module.exports = {
   signUpSuccess,
   signUpFailure,
   signInFailure,
