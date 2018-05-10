@@ -13,5 +13,52 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+      <p id="message"></p>
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign up</legend>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up">
+        </fieldset>
+      </form>
+      <form id="sign-in" class="border">
+        <fieldset>
+            <legend>Sign in</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign In">
+        </fieldset>
+      </form>
+      <form id="sign-out" class="hidden">
+        <fieldset>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form>
+      <form id="change-password" class="border hidden">
+        <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" placeholder="Old Password" required>
+            <input type="password" name="passwords[new]" placeholder="New Password" required>
+            <input type="submit" value="Change Password">
+        </fieldset>
+      </form>
+
+      <form id="create-survey" class="border">
+        <fieldset>
+            <legend>Make your survey</legend>
+            <input type="text" name="survey[title]" placeholder="Title" required>
+            <input type="text" name="survey[description]" placeholder="Description" required>
+            <input type="text" name="survey[question]" placeholder="Question" required>
+            <input type="submit" value="Create Survey">
+        </fieldset>
+      </form>
+      <form id="index-survey">
+        <fieldset>
+          <input type="submit" value="Index Surveys">
+        </fieldset>
+      </form>
+    <div class="content"></div>
     </body>
 </html>
