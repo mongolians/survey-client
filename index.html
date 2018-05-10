@@ -82,6 +82,26 @@
             <input type="submit" value="Update Survey">
         </fieldset>
       </form>
+      <form id="create-answer">
+            <input type="radio" name="answer[response]" value="1">1<br>
+            <input type="radio" name="answer[response]" value="2">2<br>
+            <input type="radio" name="answer[response]" value="3">3<br>
+            <input type="radio" name="answer[response]" value="4">4<br>
+            <input type="radio" name="answer[response]" value="5">5<br>
+            <input type="text" name="answer[survey]" placeholder="survey id"><br>
+            <input type="submit" value="Submit Answer">
+</form>
+<form id="show-answer">
+  <fieldset>
+    <input type="text" name="answer[id]" placeholder="Answer ID" required>
+    <input type="submit" value="Find an Answer">
+  </fieldset>
+</form>
+<form id="index-answer">
+  <fieldset>
+    <input type="submit" value="Index Answers">
+  </fieldset>
+</form>
     <div class="content"></div>
 
     </body>
