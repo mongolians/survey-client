@@ -2,9 +2,10 @@
 const store = require('../store')
 
 const createAnswerSuccess = function (data) {
-  console.log(data)
-  console.log(data.answer.survey)
-  console.log(store.surveyId)
+  // console.log(data)
+  // console.log(data.answer.survey)
+  store.surveyID = data.answer.survey
+  // console.log(store.surveyId)
   // const surveyId = $('.submit-answer-button').data('id')
   // console.log(surveyId)
   // console.log($('#' + data.answer.survey + '.modal-message'))
@@ -42,12 +43,47 @@ const showAnswerFailure = function (data) {
   $('form').trigger('reset')
 }
 const indexAnswerSuccess = function (data) {
-  console.log(data.answers)
+  // console.log(data.answers)
   // console.log(data.answers.survey)
-  // for (let i = 0; i < data.answers.length; i++) {
-  //   if (data.answers[i].survey === '5af447fdfa042b77d55e3354') {
-  //     console.log(data.answer[i]._id)
-  //   }
+  console.log(store.surveyID)
+  // console.log($('.answer-modal').attr('id'))
+  const totalArray = []
+  const oneArray = []
+  const twoArray = []
+  const threeArray = []
+  const fourArray = []
+  const fiveArray = []
+  for (let i = 0; i < data.answers.length; i++) {
+    if (data.answers[i].survey === store.surveyID) {
+      totalArray.push(data.answers[i].response)
+      console.log('response is ' + data.answers[i].response + ' with ID ' + data.answers[i]._id + ' on survey ' + store.surveyID)
+      if (data.answers[i].response === '5') {
+        fiveArray.push(data.answers[i].response)
+      } else if (data.answers[i].response === '4') {
+        fourArray.push(data.answers[i].response)
+      } else if (data.answers[i].response === '3') {
+        threeArray.push(data.answers[i].response)
+      } else if (data.answers[i].response === '2') {
+        twoArray.push(data.answers[i].response)
+      } else if (data.answers[i].response === '1') {
+        oneArray.push(data.answers[i].response)
+      }
+    }
+  }
+  console.log(totalArray)
+  // console.log(totalArray.length)
+
+  console.log(fiveArray)
+  console.log('# of 5s ' + fiveArray.length)
+  console.log(fourArray)
+  console.log('# of 4s ' + fourArray.length)
+  console.log(threeArray)
+  console.log('# of 3s ' + threeArray.length)
+  console.log(twoArray)
+  console.log('# of 2s ' + twoArray.length)
+  console.log(oneArray)
+  console.log('# of 1s ' + oneArray.length)
+
     // console.log(data.answers[i].survey)
   // }
   // const getAnswerHtml = showAnswersTemplate({

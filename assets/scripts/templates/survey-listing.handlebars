@@ -7,7 +7,7 @@
   </li>
   <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{survey._id}}">Take this survey!</button>
 
-  <div class="modal fade" id="{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal answer-modal fade" id="{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-id="{{survey._id}}">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -26,12 +26,12 @@
                   <input type="text" name="answer[survey]" placeholder="survey id" class="hidden" value="{{survey._id}}"><br>
                   <input type="submit" class='submit-answer-button' data-id="{{survey._id}}" value="Submit Answer">
             </form>
-          <form>
-            <fieldset>
-              <input class="view-results" type="submit" value="View Results">
-            </fieldset>
-          </form>
-            <div class="hidden" id="results"> </div>
+            <form class="index-answer">
+              <fieldset>
+                <input type="submit" value="Index Answers">
+              </fieldset>
+            </form>
+            <div id="results"> </div>
           </div>
 
           <div class="modal-footer">

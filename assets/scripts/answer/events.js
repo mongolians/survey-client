@@ -32,7 +32,7 @@ const onIndexAnswer = function () {
 
 const addHandlers = function () {
   $('.content').on('submit', '.create-answer', onCreateAnswer)
-  $('#index-answer').on('submit', onIndexAnswer)
+  $('.content').on('submit', '.index-answer', onIndexAnswer)
   $('#show-answer').on('submit', onShowAnswer)
   // $('#delete-answer').on('submit', onDeleteAnswer)
   // $('#update-answer').on('submit', onUpdateAnswer)
