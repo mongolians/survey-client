@@ -2,15 +2,16 @@
 
 const createAnswerSuccess = function (data) {
   console.log(data)
-  $('#message').text('Answer created!')
-  $('#message').css('background-color', '#d5fdd5')
-  $('form').trigger('reset')
+  $('#modal-message').text('Answer created!')
+  $('#modal-message').css('background-color', '#d5fdd5')
+  $('#view-results').removeClass('hidden')
+  // $('form').trigger('reset')
 }
 
 const createAnswerFailure = function (data) {
-  $('#message').text('Failed to post answer')
-  $('#message').css('background-color', '#ff6666')
-  $('form').trigger('reset')
+  $('#modal-message').text('Failed to post answer')
+  $('#modal-message').css('background-color', '#ff6666')
+  // $('form').trigger('reset')
 }
 const showAnswerSuccess = function (data) {
   console.log(data.answer)

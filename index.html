@@ -100,7 +100,7 @@
         </fieldset>
       </form>
       <div class="hidden">
-      <form id="create-answer" class="hidden">
+      <!-- <form id="create-answer" class="hidden">
             <input type="radio" name="answer[response]" value="1">1 Strongly Disagree<br>
             <input type="radio" name="answer[response]" value="2">2 Disagree<br>
             <input type="radio" name="answer[response]" value="3">3 Neutral<br>
@@ -108,7 +108,7 @@
             <input type="radio" name="answer[response]" value="5">5 Strongly Agree<br>
             <input type="text" name="answer[survey]" placeholder="survey id"><br>
             <input type="submit" value="Submit Answer">
-</form>
+</form> -->
 <form id="show-answer">
   <fieldset>
     <input type="text" name="answer[id]" placeholder="Answer ID" required>
@@ -121,6 +121,28 @@
   </fieldset>
 </form>
 </div>
+
+<section class="dashboard">
+<h2>Survey title</h2>
+<h3> survey description </h3>
+<h3> Question </h3>
+
+<!-- <form id="create-answer" class="hidden">
+      <input type="radio" name="answer[response]" value="1">1 Strongly Disagree<br>
+      <input type="radio" name="answer[response]" value="2">2 Disagree<br>
+      <input type="radio" name="answer[response]" value="3">3 Neutral<br>
+      <input type="radio" name="answer[response]" value="4">4 Agree<br>
+      <input type="radio" name="answer[response]" value="5">5 Strongly Agree<br>
+      <input type="text" name="answer[survey]" placeholder="survey id"><br>
+      <input type="submit" value="Submit Answer">
+</form> -->
+
+<fieldset>
+  <input class="hidden" id="view-results" type="submit" value="View Results">
+</fieldset>
+<div class="hidden" id="results"> </div>
+
+</section>
     <div class="content hidden">
       <form id="clear-list">
               <input type="submit" value="Clear List">

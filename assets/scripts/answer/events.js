@@ -24,8 +24,12 @@ const onIndexAnswer = function () {
     .catch(ui.indexAnswerFailure)
 }
 
+// const responseTotal = function () {
+//
+// }
+
 const addHandlers = function () {
-  $('#create-answer').on('submit', onCreateAnswer)
+  $('.content').on('submit', '.create-answer', onCreateAnswer)
   $('#index-answer').on('submit', onIndexAnswer)
   $('#show-answer').on('submit', onShowAnswer)
   // $('#delete-answer').on('submit', onDeleteAnswer)

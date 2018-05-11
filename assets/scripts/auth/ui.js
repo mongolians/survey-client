@@ -20,7 +20,7 @@ const signInSuccess = function (data) { // represents what the api is sending ba
   $('#sign-out').removeClass('hidden')
   $('#sign-in').addClass('hidden')
   $('#sign-up').addClass('hidden')
-  $('#create-answer').removeClass('hidden')
+  $('.create-answer').removeClass('hidden')
   $('#modal-auth').modal('hide')
   $('.survey-content').removeClass('hidden')
   $('#modal-btn').text('Change Password / Sign Out')

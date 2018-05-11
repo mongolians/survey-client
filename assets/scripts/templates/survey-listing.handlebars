@@ -3,9 +3,42 @@
 <h1 data-id="{{survey._id}}"> <small>Title: {{survey.title}}</small></h1>
   <li>Description: {{survey.description}}
   </li>
-  <li>Question: {{survey.question}}
-  </li>
   <li>ID: {{survey._id}}
   </li>
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{survey._id}}">Take this survey!</button>
+
+  <div class="modal fade" id="{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h1 class="modal-title" id="myModalLabel">{{survey.title}}</h1>
+          </div>
+          <div class="modal-body">
+            <h2>{{survey.question}}
+            </h2>
+            <form class="create-answer">
+                  <input type="radio" name="answer[response]" value="1">1 Strongly Disagree<br>
+                  <input type="radio" name="answer[response]" value="2">2 Disagree<br>
+                  <input type="radio" name="answer[response]" value="3">3 Neutral<br>
+                  <input type="radio" name="answer[response]" value="4">4 Agree<br>
+                  <input type="radio" name="answer[response]" value="5">5 Strongly Agree<br>
+                  <input type="text" name="answer[survey]" placeholder="survey id"><br>
+                  <input type="submit" value="Submit Answer">
+            </form>
+            <fieldset>
+              <input class="hidden" id="view-results" type="submit" value="View Results">
+            </fieldset>
+            <div class="hidden" id="results"> </div>
+          </div>
+          <div class="modal-footer">
+            <p id="modal-message"></p>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </div>
 {{/each}}
