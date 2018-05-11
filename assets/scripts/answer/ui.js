@@ -1,17 +1,28 @@
 // const global = require('../global')
+const store = require('../store')
 
 const createAnswerSuccess = function (data) {
   console.log(data)
-  $('#modal-message').text('Answer created!')
-  $('#modal-message').css('background-color', '#d5fdd5')
-  $('#view-results').removeClass('hidden')
-  // $('form').trigger('reset')
+  console.log(data.answer.survey)
+  console.log(store.surveyId)
+  // const surveyId = $('.submit-answer-button').data('id')
+  // console.log(surveyId)
+  // console.log($('#' + data.answer.survey + '.modal-message'))
+  $('#' + data.answer.survey + ' .modal-message').text('Answer created!')
+  $('#' + data.answer.survey + ' .modal-message').css('background-color', '#d5fdd5')
+  $('.view-results').removeClass('hidden')
+  $('form').trigger('reset')
 }
 
-const createAnswerFailure = function (data) {
-  $('#modal-message').text('Failed to post answer')
-  $('#modal-message').css('background-color', '#ff6666')
-  // $('form').trigger('reset')
+const createAnswerFailure = function (data, event) {
+  // console.log(data)
+  // const surveyId = $('.submit-answer-button').data('id')
+  // console.log(surveyId)
+  // console.log(event.target.id)
+  // $('#' + event.target.id + ' .modal-message').text('Failed to post answer')
+  // $('#' + event.target.id + ' .modal-message').css('background-color', '#ff6666')
+  $('form').trigger('reset')
+  // $("input[type='radio']").trigger('reset')
 }
 const showAnswerSuccess = function (data) {
   console.log(data.answer)
@@ -32,6 +43,13 @@ const showAnswerFailure = function (data) {
 }
 const indexAnswerSuccess = function (data) {
   console.log(data.answers)
+  // console.log(data.answers.survey)
+  // for (let i = 0; i < data.answers.length; i++) {
+  //   if (data.answers[i].survey === '5af447fdfa042b77d55e3354') {
+  //     console.log(data.answer[i]._id)
+  //   }
+    // console.log(data.answers[i].survey)
+  // }
   // const getAnswerHtml = showAnswersTemplate({
   //   answers: data.answers
   // })

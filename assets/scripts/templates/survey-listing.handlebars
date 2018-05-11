@@ -18,27 +18,29 @@
             <h2>{{survey.question}}
             </h2>
             <form class="create-answer">
-                  <input type="radio" name="answer[response]" value="1">1 Strongly Disagree<br>
+                  <input type="radio" name="answer[response]" value="1" required>1 Strongly Disagree<br>
                   <input type="radio" name="answer[response]" value="2">2 Disagree<br>
                   <input type="radio" name="answer[response]" value="3">3 Neutral<br>
                   <input type="radio" name="answer[response]" value="4">4 Agree<br>
                   <input type="radio" name="answer[response]" value="5">5 Strongly Agree<br>
-                  <input type="text" name="answer[survey]" placeholder="survey id"><br>
-                  <input type="submit" value="Submit Answer">
+                  <input type="text" name="answer[survey]" placeholder="survey id" class="hidden" value="{{survey._id}}"><br>
+                  <input type="submit" class='submit-answer-button' data-id="{{survey._id}}" value="Submit Answer">
             </form>
+          <form>
             <fieldset>
-              <input class="hidden" id="view-results" type="submit" value="View Results">
+              <input class="view-results" type="submit" value="View Results">
             </fieldset>
+          </form>
             <div class="hidden" id="results"> </div>
           </div>
+
           <div class="modal-footer">
-            <p id="modal-message"></p>
+              <p class="modal-message"></p>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
     </div>
-
 
 </div>
 {{/each}}

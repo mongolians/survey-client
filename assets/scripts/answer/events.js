@@ -1,10 +1,12 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../')
 
 const onCreateAnswer = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  // console.log(data.answer.survey)
   api.createAnswer(data)
     .then(ui.createAnswerSuccess)
     .catch(ui.createAnswerFailure)
