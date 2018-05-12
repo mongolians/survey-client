@@ -3,19 +3,22 @@ const store = require('../store')
 const signUpSuccess = function (data) {
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', '#d5fdd5')
+  setTimeout(() => $('#message').html(''), 2000)
   $('#modal-auth').modal('hide')
   $('form').trigger('reset')
 }
 
 const signUpFailure = function (data) {
-  $('#message').text('Failure signing up')
-  $('#message').css('background-color', '#ff6666')
+  $('.modal-message').text('Failure signing up')
+  $('.modal-message').css('background-color', '#ff6666')
   $('form').trigger('reset')
+  setTimeout(() => $('.modal-message').html(''), 2000)
 }
 
 const signInSuccess = function (data) { // represents what the api is sending back (the api response)
   $('#message').text('Successfully signed in')
   $('#message').css('background-color', '#d5fdd5')
+  setTimeout(() => $('#message').html(''), 2000)
   $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('#sign-in').addClass('hidden')
@@ -23,21 +26,23 @@ const signInSuccess = function (data) { // represents what the api is sending ba
   $('.create-answer').removeClass('hidden')
   $('#modal-auth').modal('hide')
   $('.survey-content').removeClass('hidden')
-  $('#modal-btn').text('Change Password / Sign Out')
+  $('#modal-btn').text('Change Password')
   // $('.content').removeClass('hidden')
   store.user = data.user
   $('form').trigger('reset')
 }
 
 const signInFailure = function (data) {
-  $('#message').text('Failure signing in')
-  $('#message').css('background-color', '#ff6666')
+  $('.modal-message').text('Failure signing in')
+  $('.modal-message').css('background-color', '#ff6666')
   $('form').trigger('reset')
+  setTimeout(() => $('.modal-message').html(''), 2000)
 }
 
 const signOutSuccess = function (data) {
   $('#message').text('Successfully signed out')
   $('#message').css('background-color', '#d5fdd5')
+  setTimeout(() => $('#message').html(''), 2000)
   store.user = null
   $('#change-password').addClass('hidden')
   $('#sign-out').addClass('hidden')
@@ -54,20 +59,22 @@ const signOutFailure = function (data) {
   // console.log('signup failure')
   $('#message').text('Failure signing out')
   $('#message').css('background-color', '#F2DEDE')
-  setTimeout(() => $('#message').text(''), 3000)
+  setTimeout(() => $('#message').text(''), 2000)
   $('form').trigger('reset')
 }
 
 const changePassSuccess = function (data) {
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', '#d5fdd5')
+  setTimeout(() => $('#message').html(''), 2000)
   $('#modal-auth').modal('hide')
   $('form').trigger('reset')
 }
 
 const changePassFailure = function (data) {
-  $('#message').text('Failure changing password')
-  $('#message').css('background-color', '#ff6666')
+  $('.modal-message').text('Failure changing password')
+  $('.modal-message').css('background-color', '#ff6666')
+  setTimeout(() => $('.modal-message').html(''), 2000)
   $('form').trigger('reset')
 }
 

@@ -14,6 +14,11 @@
     <body>
       <h1>Survey Devil</h1>
       <p id="message"></p>
+      <form id="sign-out" class="hidden">
+        <fieldset>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form>
 <button type="button" class="btn btn-default" id='modal-btn'  data-toggle="modal" data-target="#modal-auth">Sign up/Sign in</button>
       <div class="modal fade" id="modal-auth" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -40,11 +45,6 @@
                 <input type="submit" value="Sign In">
             </fieldset>
           </form>
-          <form id="sign-out" class="hidden">
-            <fieldset>
-              <input type="submit" value="Sign out">
-            </fieldset>
-          </form>
           <form id="change-password" class="border hidden">
             <fieldset>
                 <legend>Change Password</legend>
@@ -56,6 +56,7 @@
 
         </div>
         <div class="modal-footer">
+          <p class="modal-message pull-left"></p>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -109,35 +110,6 @@
             <input type="submit" value="Update Survey">
         </fieldset>
       </form>
-
-      <div>
-      <!-- <form id="create-answer" class="hidden">
-            <input type="radio" name="answer[response]" value="1">1 Strongly Disagree<br>
-            <input type="radio" name="answer[response]" value="2">2 Disagree<br>
-            <input type="radio" name="answer[response]" value="3">3 Neutral<br>
-            <input type="radio" name="answer[response]" value="4">4 Agree<br>
-            <input type="radio" name="answer[response]" value="5">5 Strongly Agree<br>
-            <input type="text" name="answer[survey]" placeholder="survey id"><br>
-            <input type="submit" value="Submit Answer">
-</form> -->
-<form id="show-answer">
-  <fieldset>
-    <input type="text" name="answer[id]" placeholder="Answer ID" required>
-    <input type="submit" value="Find an Answer">
-  </fieldset>
-</form>
-<!-- <form id="index-answer">
-  <fieldset>
-    <input type="submit" value="Index Answers">
-  </fieldset>
-</form> -->
-</div>
-
-<!-- <form>
-  <fieldset>
-    <input class="view-results" type="submit" value="View Results">
-  </fieldset>
-</form> -->
 
 <section class="dashboard">
 </section>
