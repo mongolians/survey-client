@@ -25,6 +25,7 @@ const indexSurveySuccess = function (data) {
   // $('#message').css('background-color', '#d5fdd5')
   $('.content').removeClass('hidden')
   $('form').trigger('reset')
+  console.log(data)
 }
 const indexSurveyFailure = function (data) {
   $('#message').text('Failed to get surveys')

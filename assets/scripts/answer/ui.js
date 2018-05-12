@@ -8,6 +8,7 @@ const createAnswerSuccess = function (data) {
   console.log(modalId)
   $('#' + data.answer.survey + ' .modal-message').text('Response added')
   $('#' + data.answer.survey + ' .modal-message').css('background-color', '#d5fdd5')
+  setTimeout(() => $('#' + data.answer.survey + ' .modal-message').html(''), 2000)
   $('#' + modalId + ' .index-answer').removeClass('hidden')
   $('#' + modalId + ' .create-answer').addClass('hidden')
   $('form').trigger('reset')
@@ -85,7 +86,7 @@ const indexAnswerSuccess = function (data, surveyId) {
 
   $('#' + surveyId + ' .results').empty()
   $('#' + surveyId + ' .results').append(`
-    <table>
+    <table class='table-content'>
       <thead>
         <tr>
           <th align="center">Category</th>
@@ -110,7 +111,7 @@ const indexAnswerSuccess = function (data, surveyId) {
           <td align="center">${twoArray.length}</td>
         </tr>
         <tr>
-          <td align="left"> Strongly Agree </td>
+          <td align="left"> Strongly Disagree </td>
           <td align="center">${oneArray.length}</td>
         </tr>
         <tr>

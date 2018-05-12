@@ -1,13 +1,73 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$grey: #808080;
+$white: #fff;
+$black: #000;
 
+.body-image {
+  background-image: url('../../public/survey-devil.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.submit-answer-button {
+  margin-top: 15px;
+}
+
+.survey-forms {
+  margin-bottom: 25px;
+}
+
+.auth-btn {
+  margin-top: 20px;
+}
+
+.radio-btn {
+  vertical-align: middle;
+  margin: 0px;
+}
+
+.navbar-inverse{
+  color: $white;
+  box-shadow: 0 0 2rem $black;
+}
+
+.large-title {
+  font-size: 48px;
+}
+
+table, td, th {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+.body-content {
+  overflow: scroll;
+}
 .content {
-  height: 280px;
+  height: 350px;
   border: 2px solid black;
   text-align: center;
   overflow: scroll;
-  background-color: #73ba9b;
-  color: black;
+  background-color: #cffcf8;
+  color: $black;
+  margin-top: 50px;
+}
+
+.color-change {
+  // margin-top: 100px;
+  background-color: #b9cece;
+  padding: 100px 15px 0 30px;
+  // background-color: $white;
+  box-shadow: 0 0 1.5rem $black;
+  height: 100vh;
 }
 
 .handlebars {

@@ -1,10 +1,18 @@
 {{#each surveys as |survey|}}
 <div class="handlebars">
 <h1 data-id="{{survey._id}}"> <small>Title: {{survey.title}}</small></h1>
-  <li>Description: {{survey.description}}
-  </li>
-  <li>ID: {{survey._id}}
-  </li>
+<!-- <ul> -->
+  <!-- <li> -->
+    <span> - Description: {{survey.description}}</span>
+    <br>
+  <!-- </li> -->
+  <!-- <li> -->
+    <span> -   ID: {{survey._id}}</span>
+    <br>
+    <span> -   Owner: {{survey.owner.email}}</span>
+    <br>
+  <!-- </li> -->
+<!-- </ul> -->
   <button type="button" class="btn btn-default" data-toggle="modal" data-target="#{{survey._id}}">Take this survey!</button>
 
   <div class="modal answer-modal fade" id="{{survey._id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-id="{{survey._id}}">
@@ -18,18 +26,44 @@
             <h2>{{survey.question}}
             </h2>
             <form class="create-answer">
-                  <input type="radio" name="answer[response]" value="1" required>1 Strongly Disagree<br>
-                  <input type="radio" name="answer[response]" value="2">2 Disagree<br>
-                  <input type="radio" name="answer[response]" value="3">3 Neutral<br>
-                  <input type="radio" name="answer[response]" value="4">4 Agree<br>
-                  <input type="radio" name="answer[response]" value="5">5 Strongly Agree<br>
+                  <!-- <input type="radio" class='radio-btn' name="answer[response]" value="1" required>1 Strongly Disagree
+                  <input type="radio" class='radio-btn'name="answer[response]" value="2">2 Disagree
+                  <input type="radio" class='radio-btn'name="answer[response]" value="3">3 Neutral
+                  <input type="radio" class='radio-btn'name="answer[response]" value="4">4 Agree<
+                  <input type="radio" class='radio-btn'name="answer[response]" value="5">5 Strongly Agree<br> -->
                   <input type="text" name="answer[survey]" placeholder="survey id" class="hidden" value="{{survey._id}}"><br>
-                  <input type="submit" class='submit-answer-button' data-id="{{survey._id}}" value="Submit Answer">
+
+                  <!-- <div class="btn-group" role="group" aria-label="..." required>
+                    <button type="button" name="answer[response]" value="1" class="btn btn-default">Strongly Disagree</button>
+                    <button type="button" name="answer[response]" value="2" class="btn btn-default">Disagree</button>
+                    <button type="button" name="answer[response]" value="3" class="btn btn-default">Neutral</button>
+                    <button type="button" name="answer[response]" value="4" class="btn btn-default">Agree</button>
+                    <button type="button" name="answer[response]" value="5" class="btn btn-default">Strongly Agree</button>
+                  </div> -->
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default">
+                      <input type="radio" name="answer[response]" value="1" autocomplete="off" required> Strongly Disagree
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="answer[response]" value="2" autocomplete="off"> Disagree
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="answer[response]" value="3" autocomplete="off"> Neutral
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="answer[response]" value="4" autocomplete="off"> Agree
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="answer[response]" value="5" autocomplete="off"> Strongly Agree
+                    </label>
+                  </div>
+                  <br>
+                  <input type="submit" class='submit-answer-button btn btn-default' data-id="{{survey._id}}" value="Submit Answer">
             </form>
 
             <form data-id='{{survey._id}}' class="index-answer hidden">
               <fieldset>
-                <input type="submit" value="View Results">
+                <input type="submit" class="btn btn-default" value="View Results">
               </fieldset>
             </form>
 
