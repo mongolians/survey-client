@@ -4,25 +4,21 @@ const store = require('../store')
 const createAnswerSuccess = function (data) {
   // console.log(data)
   // console.log(data.answer.survey)
-  store.surveyID = data.answer.survey
-  // console.log(store.surveyId)
-  // const surveyId = $('.submit-answer-button').data('id')
-  // console.log(surveyId)
-  // console.log($('#' + data.answer.survey + '.modal-message'))
+  const modalId = data.answer.survey
+  console.log(modalId)
   $('#' + data.answer.survey + ' .modal-message').text('Answer created!')
   $('#' + data.answer.survey + ' .modal-message').css('background-color', '#d5fdd5')
-  $('.view-results').removeClass('hidden')
+  $('#' + modalId + ' .index-answer').removeClass('hidden')
+  $('#' + modalId + ' .create-answer').addClass('hidden')
   $('form').trigger('reset')
+  console.log($('#' + data.answer.survey + ' .modal-message'))
 }
 
-const createAnswerFailure = function (data, event) {
-  // console.log(data)
-  // const surveyId = $('.submit-answer-button').data('id')
-  // console.log(surveyId)
-  // console.log(event.target.id)
+const createAnswerFailure = function (data) {
   // $('#' + event.target.id + ' .modal-message').text('Failed to post answer')
   // $('#' + event.target.id + ' .modal-message').css('background-color', '#ff6666')
   $('form').trigger('reset')
+
   // $("input[type='radio']").trigger('reset')
 }
 const showAnswerSuccess = function (data) {
@@ -42,7 +38,7 @@ const showAnswerFailure = function (data) {
   $('#message').css('background-color', '#ff6666')
   $('form').trigger('reset')
 }
-const indexAnswerSuccess = function (data) {
+const indexAnswerSuccess = function (data, surveyId) {
   // console.log(data.answers)
   // console.log(data.answers.survey)
   console.log(store.surveyID)
@@ -54,7 +50,7 @@ const indexAnswerSuccess = function (data) {
   const fourArray = []
   const fiveArray = []
   for (let i = 0; i < data.answers.length; i++) {
-    if (data.answers[i].survey === store.surveyID) {
+    if (data.answers[i].survey === surveyId) {
       totalArray.push(data.answers[i].response)
       console.log('response is ' + data.answers[i].response + ' with ID ' + data.answers[i]._id + ' on survey ' + store.surveyID)
       if (data.answers[i].response === '5') {
@@ -84,7 +80,49 @@ const indexAnswerSuccess = function (data) {
   console.log(oneArray)
   console.log('# of 1s ' + oneArray.length)
 
-    // console.log(data.answers[i].survey)
+  $('#' + surveyId + ' .results').empty()
+  $('#' + surveyId + ' .results').append(`
+    <table>
+      <thead>
+        <tr>
+          <th align="center">Category</th>
+          <th align="center">Total Responses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left"> Strongly Agree </td>
+          <td align="center">${fiveArray.length}</tdr>
+        </tr>
+        <tr>
+          <td align="left"> Agree </td>
+          <td align="center">${fourArray.length}</td>
+        </tr>
+        <tr>
+          <td align="left"> Neutral </td>
+          <td align="center">${threeArray.length}</td>
+        </tr>
+        <tr>
+          <td align="left"> Disagree </td>
+          <td align="center">${twoArray.length}</td>
+        </tr>
+        <tr>
+          <td align="left"> Strongly Agree </td>
+          <td align="center">${oneArray.length}</td>
+        </tr>
+        <tr>
+          <td align="left"> Total Responses </td>
+          <td align="center">${totalArray.length}</td>
+      </tbody>
+    </table>
+    `)
+
+  // console.log(store.surveyID)
+  // $('#' + store.surveyID + ' .result').append('hi')
+  // console.log(resultDiv)
+  // console.log($(resultDiv).val())
+
+  // console.log(data.answers[i].survey)
   // }
   // const getAnswerHtml = showAnswersTemplate({
   //   answers: data.answers

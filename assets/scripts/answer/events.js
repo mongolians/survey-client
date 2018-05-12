@@ -1,7 +1,11 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../')
+// const store = require('../')
+
+$('.modal').on('hidden.bs.modal', function (e) {
+  $('input[type="radio"]').prop('checked', false)
+})
 
 const onCreateAnswer = function (event) {
   event.preventDefault()
@@ -19,16 +23,16 @@ const onShowAnswer = function (event) {
     .then(ui.showAnswerSuccess)
     .catch(ui.showAnswerFailure)
 }
-const onIndexAnswer = function () {
+const onIndexAnswer = function (event) {
   event.preventDefault()
+  const surveyId = $(event.target).data('id')
+
   api.indexAnswer()
-    .then(ui.indexAnswerSuccess)
+    .then((data) => {
+      ui.indexAnswerSuccess(data, surveyId)
+    })
     .catch(ui.indexAnswerFailure)
 }
-
-// const responseTotal = function () {
-//
-// }
 
 const addHandlers = function () {
   $('.content').on('submit', '.create-answer', onCreateAnswer)

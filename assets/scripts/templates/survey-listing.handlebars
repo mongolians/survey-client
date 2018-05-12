@@ -26,12 +26,14 @@
                   <input type="text" name="answer[survey]" placeholder="survey id" class="hidden" value="{{survey._id}}"><br>
                   <input type="submit" class='submit-answer-button' data-id="{{survey._id}}" value="Submit Answer">
             </form>
-            <form class="index-answer">
+
+            <form data-id='{{survey._id}}' class="index-answer hidden">
               <fieldset>
-                <input type="submit" value="Index Answers">
+                <input type="submit" value="View Results">
               </fieldset>
             </form>
-            <div id="results"> </div>
+
+            <div class="results"></div>
           </div>
 
           <div class="modal-footer">
