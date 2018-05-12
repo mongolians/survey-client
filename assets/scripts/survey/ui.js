@@ -38,6 +38,7 @@ const showSurveySuccess = function (data) {
   const getSurveyHtml = showSurveyTemplate({
     survey: data.survey
   })
+  $('.content').removeClass('hidden')
   $('.handlebars').empty() // Prevents the list from duplicating if user clicks "View All Animals" multiple time
   $('.content').append(getSurveyHtml)
   $('#clear-list').removeClass('hidden') // Show clear button when user clicks "View All Animals"
