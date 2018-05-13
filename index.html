@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Survey Devil</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -20,19 +20,36 @@
             <div class="col-sm-6">
               <h1 class='large-title'>Survey Devil</h1>
             </div>
+
             <div class="col-sm-6">
+
               <form id="sign-out" class="hidden pull-right auth-btn">
                 <fieldset>
                   <input type="submit" value="Sign out" class="btn btn-default">
                 </fieldset>
               </form>
+
               <button type="button" class="btn btn-default pull-right auth-btn" id='modal-btn'  data-toggle="modal" data-target="#modal-auth">Sign up/Sign in</button>
+
+              <form id="user-surveys" class="hidden survey-forms pull-right auth-btn">
+                <fieldset>
+                  <input type="submit" id='user-surveys-btn' class="btn btn-default" value="View My Surveys">
+                </fieldset>
+              </form>
+
+              <form id="index-survey" class="hidden survey-forms pull-right auth-btn">
+                <fieldset>
+                  <input type="submit" class="btn btn-default" value="View All Surveys">
+                </fieldset>
+              </form>
+
             </div>
           </div>
         </div>
       </nav>
-      <div class="body-content">
       <p id="message"></p>
+      <div class="body-content">
+
 
       <div class="modal fade" id="modal-auth" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -75,11 +92,14 @@
       </div>
     </div>
   </div>
+
+
 <div class="survey-content hidden">
 
       <form id="create-survey" class="survey-forms">
         <fieldset>
             <legend>Make your survey</legend>
+            <p class="create-message">Surveys will allow users to choose an option ranging from strongly disagree to strongly agree</p>
             <input type="text" name="survey[title]" placeholder="Title" required>
             <input type="text" name="survey[description]" placeholder="Description" required>
             <input type="text" name="survey[question]" placeholder="Question" required>
@@ -87,13 +107,16 @@
         </fieldset>
       </form>
 
-      <form id="index-survey" class="survey-forms">
+      <form id="update-survey" class="survey-forms">
         <fieldset>
-          <legend>Show all surveys</legend>
-          <input type="submit" class="btn btn-default" value="Index Surveys">
+            <legend>Update your survey</legend>
+            <input type="text" name="survey[id]" placeholder="Survey ID" required>
+            <input type="text" name="survey[title]" placeholder="Title" required>
+            <input type="text" name="survey[description]" placeholder="Description" required>
+            <input type="text" name="survey[question]" placeholder="Question" required>
+            <input type="submit" class="btn btn-default" value="Update Survey">
         </fieldset>
       </form>
-
 
       <form id="show-survey" class="survey-forms">
         <fieldset>
@@ -103,26 +126,6 @@
         </fieldset>
       </form>
 
-
-      <form id="delete-survey" class="survey-forms">
-        <fieldset>
-          <legend> Delete your Survey</legend>
-          <input type="text" name="survey[id]" placeholder="Survey ID" required>
-          <input type="submit" class="btn btn-default" value="Delete a Survey">
-        </fieldset>
-      </form>
-
-
-      <form id="update-survey" class="survey-forms">
-        <fieldset>
-            <legend>Update your survey</legend>
-            <input type="text" name="survey[title]" placeholder="Title" required>
-            <input type="text" name="survey[id]" placeholder="ID" required>
-            <input type="text" name="survey[description]" placeholder="Description" required>
-            <input type="text" name="survey[question]" placeholder="Question" required>
-            <input type="submit" class="btn btn-default" value="Update Survey">
-        </fieldset>
-      </form>
 
 <section class="dashboard">
 </section>

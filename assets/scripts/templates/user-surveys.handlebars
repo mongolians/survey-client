@@ -1,0 +1,17 @@
+  <div class="handlebars">
+  <h1 data-id="{{survey._id}}"> <small>Title: {{survey.title}}</small></h1>
+    <p><strong>Description:</strong> {{survey.description}}
+    </p>
+    <p><strong>Question: </strong>{{survey.question}}
+    </p>
+    <p><strong>Survey ID:</strong> {{survey._id}}
+    </p>
+
+    <form class="delete-survey survey-forms">
+      <fieldset>
+        <input type="text" class="hidden "name="survey[id]" value="{{survey._id}}" required>
+        <input type="submit" class="btn btn-default" value="Delete This Survey">
+      </fieldset>
+    </form>
+
+  </div>

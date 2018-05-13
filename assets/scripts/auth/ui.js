@@ -31,6 +31,8 @@ const signInSuccess = function (data) { // represents what the api is sending ba
   store.user = data.user
   $('form').trigger('reset')
   $('.body-content').addClass('color-change')
+  $('#user-surveys').removeClass('hidden')
+  $('#index-survey').removeClass('hidden')
 }
 
 const signInFailure = function (data) {
@@ -55,6 +57,8 @@ const signOutSuccess = function (data) {
   $('form').trigger('reset')
   $('#modal-btn').text('Sign up / Sign in')
   $('.body-content').removeClass('color-change')
+  $('#user-surveys').addClass('hidden')
+  $('#index-survey').addClass('hidden')
 }
 
 const signOutFailure = function (data) {

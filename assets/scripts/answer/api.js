@@ -20,18 +20,18 @@ const indexAnswer = function (data) {
     }
   })
 }
-const showAnswer = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/answers/' + data,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
+// const showAnswer = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/answers/' + data,
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 
 module.exports = {
   createAnswer,
-  showAnswer,
+  // showAnswer,
   indexAnswer
 }

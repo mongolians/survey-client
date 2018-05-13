@@ -16,13 +16,13 @@ const onCreateAnswer = function (event) {
     .catch(ui.createAnswerFailure)
   // console.log('working')
 }
-const onShowAnswer = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api.showAnswer(data.answer.id)
-    .then(ui.showAnswerSuccess)
-    .catch(ui.showAnswerFailure)
-}
+// const onShowAnswer = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.showAnswer(data.answer.id)
+//     .then(ui.showAnswerSuccess)
+//     .catch(ui.showAnswerFailure)
+// }
 const onIndexAnswer = function (event) {
   event.preventDefault()
   const surveyId = $(event.target).data('id')
@@ -37,7 +37,7 @@ const onIndexAnswer = function (event) {
 const addHandlers = function () {
   $('.content').on('submit', '.create-answer', onCreateAnswer)
   $('.content').on('submit', '.index-answer', onIndexAnswer)
-  $('#show-answer').on('submit', onShowAnswer)
+  // $('#show-answer').on('submit', onShowAnswer)
   // $('#delete-answer').on('submit', onDeleteAnswer)
   // $('#update-answer').on('submit', onUpdateAnswer)
 }

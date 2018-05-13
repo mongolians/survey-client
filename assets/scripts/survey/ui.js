@@ -1,5 +1,7 @@
 const showSurveysTemplate = require('../templates/survey-listing.handlebars')
 const showSurveyTemplate = require('../templates/survey-show.handlebars')
+const showUserSurveysTemplate = require('../templates/user-surveys.handlebars')
+const store = require('../store')
 
 const createSurveySuccess = function () {
   $('#message').text('Survey created!')
@@ -19,22 +21,54 @@ const indexSurveySuccess = function (data) {
   const getSurveyHtml = showSurveysTemplate({
     surveys: data.surveys
   })
-  $('.handlebars').empty() // Prevents the list from duplicating if user clicks "View All Animals" multiple time
+  $('.handlebars').empty()
+  // $('.content').empty()
   $('.content').append(getSurveyHtml)
   // $('#message').text('Index works!')
   // $('#message').css('background-color', '#d5fdd5')
   $('.content').removeClass('hidden')
   $('form').trigger('reset')
-  console.log(data)
 }
+
+const userSurveysSuccess = function (data) {
+  $('.handlebars').empty()
+  $('.content').removeClass('hidden')
+  // $('.content').empty()
+
+  // console.log(store.user)
+  // console.log(data)
+
+  const userSurveys = []
+  data.surveys.forEach(function (survey) {
+    if (survey.owner === store.user._id) {
+      // console.log('true')
+      userSurveys.push(survey)
+    } else {
+      // console.log('false')
+    }
+  })
+
+  // console.log(userSurveys)
+
+  userSurveys.forEach(function (survey) {
+    const getUserSurveyHtml = showUserSurveysTemplate({
+      survey: survey
+    })
+    $('.content').append(getUserSurveyHtml)
+  })
+
+  $('form').trigger('reset')
+}
+
 const indexSurveyFailure = function (data) {
   $('#message').text('Failed to get surveys')
   $('#message').css('background-color', '#ff6666')
   setTimeout(() => $('#message').html(''), 2000)
   $('form').trigger('reset')
+  // console.log(data)
 }
 const showSurveySuccess = function (data) {
-  console.log(data.survey)
+  // console.log(data.survey)
   const getSurveyHtml = showSurveyTemplate({
     survey: data.survey
   })
@@ -58,6 +92,7 @@ const deleteSurveySuccess = function () {
   $('#message').css('background-color', '#d5fdd5')
   setTimeout(() => $('#message').html(''), 2000)
   $('form').trigger('reset')
+  $('#user-surveys-btn').click()
 }
 const deleteSurveyFailure = function (data) {
   $('#message').text('Failed to delete survey')
@@ -87,5 +122,6 @@ module.exports = {
   deleteSurveySuccess,
   deleteSurveyFailure,
   updateSurveyFailure,
-  updateSurveySuccess
+  updateSurveySuccess,
+  userSurveysSuccess
 }

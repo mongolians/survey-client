@@ -5,14 +5,14 @@ const createAnswerSuccess = function (data) {
   // console.log(data)
   // console.log(data.answer.survey)
   const modalId = data.answer.survey
-  console.log(modalId)
+  // console.log(modalId)
   $('#' + data.answer.survey + ' .modal-message').text('Response added')
   $('#' + data.answer.survey + ' .modal-message').css('background-color', '#d5fdd5')
   setTimeout(() => $('#' + data.answer.survey + ' .modal-message').html(''), 2000)
   $('#' + modalId + ' .index-answer').removeClass('hidden')
   $('#' + modalId + ' .create-answer').addClass('hidden')
   $('form').trigger('reset')
-  console.log($('#' + data.answer.survey + ' .modal-message'))
+  // console.log($('#' + data.answer.survey + ' .modal-message'))
 }
 
 const createAnswerFailure = function (data) {
@@ -25,7 +25,7 @@ const createAnswerFailure = function (data) {
 
 // SHOW ANSWERS MESSAGES
 // const showAnswerSuccess = function (data) {
-//   console.log(data.answer)
+//   // console.log(data.answer)
 //   // const getAnswerHtml = showAnswerTemplate({
 //   //   answer: data.answer
 //   // })
@@ -45,7 +45,7 @@ const createAnswerFailure = function (data) {
 const indexAnswerSuccess = function (data, surveyId) {
   // console.log(data.answers)
   // console.log(data.answers.survey)
-  console.log(store.surveyID)
+  // console.log(store.surveyID)
   // console.log($('.answer-modal').attr('id'))
   const totalArray = []
   const oneArray = []
@@ -56,7 +56,7 @@ const indexAnswerSuccess = function (data, surveyId) {
   for (let i = 0; i < data.answers.length; i++) {
     if (data.answers[i].survey === surveyId) {
       totalArray.push(data.answers[i].response)
-      console.log('response is ' + data.answers[i].response + ' with ID ' + data.answers[i]._id + ' on survey ' + store.surveyID)
+      // console.log('response is ' + data.answers[i].response + ' with ID ' + data.answers[i]._id + ' on survey ' + store.surveyID)
       if (data.answers[i].response === '5') {
         fiveArray.push(data.answers[i].response)
       } else if (data.answers[i].response === '4') {
@@ -70,19 +70,19 @@ const indexAnswerSuccess = function (data, surveyId) {
       }
     }
   }
-  console.log(totalArray)
+  // console.log(totalArray)
   // console.log(totalArray.length)
 
-  console.log(fiveArray)
-  console.log('# of 5s ' + fiveArray.length)
-  console.log(fourArray)
-  console.log('# of 4s ' + fourArray.length)
-  console.log(threeArray)
-  console.log('# of 3s ' + threeArray.length)
-  console.log(twoArray)
-  console.log('# of 2s ' + twoArray.length)
-  console.log(oneArray)
-  console.log('# of 1s ' + oneArray.length)
+  // console.log(fiveArray)
+  // console.log('# of 5s ' + fiveArray.length)
+  // console.log(fourArray)
+  // console.log('# of 4s ' + fourArray.length)
+  // console.log(threeArray)
+  // console.log('# of 3s ' + threeArray.length)
+  // console.log(twoArray)
+  // console.log('# of 2s ' + twoArray.length)
+  // console.log(oneArray)
+  // console.log('# of 1s ' + oneArray.length)
 
   $('#' + surveyId + ' .results').empty()
   $('#' + surveyId + ' .results').append(`
