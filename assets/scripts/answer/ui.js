@@ -1,5 +1,5 @@
 // const global = require('../global')
-const store = require('../store')
+// const store = require('../store')
 
 const createAnswerSuccess = function (data) {
   // console.log(data)
